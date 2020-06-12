@@ -1,0 +1,40 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+ <h1> TOP PAGE VISITED</h1>
+
+ <table class="mx-auto" style="width: 250px;"> 
+
+      <th style="padding-right: 65px;">{{text_visited_id}}</th>
+      <th style="padding-right: 65px; padding-left: 5px" >{{text_url}}</th>
+      <th style="padding-right: 50px; padding-left: 5px">{{text_title}}</th>
+      <th style="padding-right: 50px; padding-left: 5px">{{text_date}}</th>
+      <th style="padding-right: 50px; padding-left: 5px">{{text_ip_address}}</th>
+      <th style="padding-right: 50px; padding-left: 5px">{{text_user_id}}</th>
+        {% for visited in all_visited %}
+        <tr style="height: 10px"></tr>
+        <tr style="transform: translate(0,5px);">
+
+            <td > {{visited.visited_id}} </td>
+
+            <td > {{visited.url}} </td>
+            <td > {{visited.title}} </td>
+            <td > {{visited.date}} </td>
+            <td > {{visited.ip_adresse}} </td>
+            <td > {{visited.user_id}} </td>
+
+        </tr>
+        <tr style="height: 10px"></tr>
+        {% endfor %}
+
+     </table>
+{{ footer }}
