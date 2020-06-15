@@ -33,7 +33,6 @@ class ControllerReportAllvisitedpage extends Controller {
         $all_visited = $this->model_report_allvisitedpage->getAllVisitedPage();
 		
 		$data['all_visited'] = array();
-				$data['create'] = $this->url->link('news/news/create&user_token=' . $this->session->data['user_token']);
 				foreach ($all_visited as $visited) {
 					//array dans un array
 					$data['all_visited'][] = array(

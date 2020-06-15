@@ -11,4 +11,34 @@
     </div>
   </div>
  <h1> TOP FIFTEEN</h1>
+
+ <table class="mx-auto" style="width: 250px;"> 
+
+      <th style="padding-right: 65px;">{{text_visited_id}}</th>
+      <th style="padding-right: 65px; padding-left: 5px" >{{text_url}}</th>
+      <th style="padding-right: 50px; padding-left: 5px">{{text_title}}</th>
+      <th style="padding-right: 50px; padding-left: 5px">{{text_date}}</th>
+      <th style="padding-right: 50px; padding-left: 5px">{{text_ip_address}}</th>
+      <th style="padding-right: 50px; padding-left: 5px">{{text_user_id}}</th>
+      <th style="padding-right: 50px; padding-left: 5px">{{text_nb_visite}}</th>
+        {% for visited in topFifteen %}
+        <tr style="height: 10px"></tr>
+        <tr style="transform: translate(0,5px);">
+
+            <td > {{visited.visited_id}} </td>
+
+            <td > {{visited.url}} </td>
+            <td > {{visited.title}} </td>
+            <td > {{visited.date}} </td>
+            <td > {{visited.ip_address}} </td>
+            <td > {{visited.user_id}} </td>
+            <td > {{visited.nb_visite}} </td>
+
+        </tr>
+        <tr style="height: 10px"></tr>
+        {% endfor %}
+
+     </table>
+
+
 {{ footer }}
