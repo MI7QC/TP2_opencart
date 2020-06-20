@@ -21,6 +21,7 @@ class ModelExtensionModuleVisited extends Model
     //Desinstalation de la table visited
     public function dropTable()
     {
-        $this->db->query(`DROP TABLE IF EXISTS ${DB_PREFIX}visited`);
+        $this->db->query(`IF OBJECT_ID('${DB_NAME}.${DB_PREFIX}visited, 'U') IS NOT NULL
+        DROP TABLE ${DB_NAME}.${DB_PREFIX}visited`);
     }
 }
