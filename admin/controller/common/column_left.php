@@ -653,6 +653,7 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}	
 			
+			// OCMOD
 			if ($this->user->hasPermission('access', 'report/topfifteen')) {
 				$report[] = array(
 					'name'	   => $this->language->get('text_topfifteen'),
@@ -668,7 +669,8 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);
 			}
-
+			// END OCMOD
+			
 			$data['menus'][] = array(
 				'id'       => 'menu-report',
 				'icon'	   => 'fa-bar-chart-o', 

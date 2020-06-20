@@ -1,4 +1,5 @@
 <?php
+// À modifier avec OCMOD. Ajout des lignes 92 et 93
 // Text
 $_['text_api']                  = 'API';
 $_['text_attribute']            = 'Attributes';

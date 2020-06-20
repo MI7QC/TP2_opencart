@@ -1,6 +1,8 @@
 <?php
-class ControllerCommonHeader extends Controller {
-	public function index() {
+class ControllerCommonHeader extends Controller
+{
+	public function index()
+	{
 		// Analytics
 		$this->load->model('setting/extension');
 
@@ -25,7 +27,7 @@ class ControllerCommonHeader extends Controller {
 		}
 
 		$data['title'] = $this->document->getTitle();
-		
+
 		$data['base'] = $server;
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();
@@ -34,11 +36,14 @@ class ControllerCommonHeader extends Controller {
 		$data['scripts'] = $this->document->getScripts('header');
 		$data['lang'] = $this->language->get('code');
 		$data['direction'] = $this->language->get('direction');
-		$data['ip_adresse'] = $_SERVER['REMOTE_ADDR'];
-		$data['name'] = $this->config->get('config_name');
-		$data['uri'] = $_SERVER['REQUEST_URI'];
 
-		
+		$data['name'] = $this->config->get('config_name');
+		// OCMOD
+		$data['ip_adresse'] = $_SERVER['REMOTE_ADDR'];
+		$data['uri'] = $_SERVER['REQUEST_URI'];
+		// END OCMOD
+
+
 		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
 			$data['logo'] = $server . 'image/' . $this->config->get('config_logo');
 		} else {
@@ -50,19 +55,26 @@ class ControllerCommonHeader extends Controller {
 		// Wishlist And CustomerId
 		if ($this->customer->isLogged()) {
 			$this->load->model('account/wishlist');
+			// OCMOD
 			$data['customer_id'] = $this->customer->getId();
+			// END OCMOD
 			$data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
 		} else {
 			$data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+			// OCMOD
 			$data['customer_id'] = NULL;
+			// END OCMOD
+
 		}
-		
+
+		// OCMOD
 		$this->load->model('report/visited');
-		$this->model_report_visited->addVisited($data['title'], $data['uri'],$data['customer_id'],$data['ip_adresse']);	
-		
+		$this->model_report_visited->addVisited($data['title'], $data['uri'], $data['customer_id'], $data['ip_adresse']);
+		// END OCMOD
+
 		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->link('account/account', '', true), $this->customer->getFirstName(), $this->url->link('account/logout', '', true));
-	
-		
+
+
 		$data['home'] = $this->url->link('common/home');
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
 		$data['logged'] = $this->customer->isLogged();
@@ -77,7 +89,7 @@ class ControllerCommonHeader extends Controller {
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
-		
+
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
 		$data['search'] = $this->load->controller('common/search');
