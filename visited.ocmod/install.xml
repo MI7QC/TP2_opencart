@@ -4,8 +4,7 @@
     <code>Module statistique V1</code>
     <version>1.0</version>
     <author>Samuel, Sacha et Jean-Cristophe</author>
-    <link></link>
-    <file path="admin/controller/common/colum_left.php">
+    <file path="admin/controller/common/column_left.php">
         <operation>
             <search>
                 <![CDATA['href'     => $this->url->link('report/statistics', 'user_token=' . $this->session->data['user_token'], true),]]>
@@ -32,13 +31,12 @@
                     }]]>
             </add>
 
-
-            <file path="admin/langage/en-gb/common/colum_left.php">
+            <file path="admin/langage/en-gb/common/column_left.php">
                 <operation>
                     <search>
                         <![CDATA[$_['text_other_status']         = 'Other Statuses';]]>
                     </search>
-                    <add position="after" offset="1">
+                    <add position="after" offset="">
                         <![CDATA[$_['text_topfifteen']           = 'Top Fifteen Pages';
                 $_['text_allvisitedpage']       = 'All Visited Pages';]]>
                     </add>
@@ -50,7 +48,7 @@
                     <search>
                         <![CDATA[$data['direction'] = $this->language->get('direction');]]>
                     </search>
-                    <add position="after" offset="1">
+                    <add position="after" offset="">
                         <![CDATA[$data['ip_adresse'] = $_SERVER['REMOTE_ADDR'];
 		        $data['uri'] = $_SERVER['REQUEST_URI'];]]>
                     </add>
@@ -60,7 +58,7 @@
                     <search>
                         <![CDATA[$this->load->model('account/wishlist');]]>
                     </search>
-                    <add position="after" offset="1">
+                    <add position="after" offset="">
                         <![CDATA[$data['customer_id'] = $this->customer->getId();]]>
                     </add>
                 </operation>
@@ -69,7 +67,7 @@
                     <search>
                         <![CDATA[$data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));]]>
                     </search>
-                    <add position="after" offset="1">
+                    <add position="after" offset="">
                         <![CDATA[$data['customer_id'] = NULL;]]>
                     </add>
                 </operation>
@@ -78,11 +76,11 @@
                     <search>
                         <![CDATA[$data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));]]>
                     </search>
-                    <add position="after" offset="3">
+                    <add position="after" offset="2">
                         <![CDATA[$this->load->model('report/visited');
 		        $this->model_report_visited->addVisited($data['title'], $data['uri'],$data['customer_id'],$data['ip_adresse']);	]]>
                     </add>
-                </operation> -->
+                </operation>
             </file>
         </modification>
 
