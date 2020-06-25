@@ -1,5 +1,5 @@
 <?php
-class ControllerExtensionModuleVisited extends Controller{
+class ControllerExtensionReportVisited extends Controller{
     
     public function index(){
 		$this->load->language('extension/module/visited'); 
@@ -26,21 +26,21 @@ class ControllerExtensionModuleVisited extends Controller{
 		$data['column_left'] = $this->load->controller('common/column_left'); 
 		$data['footer'] = $this->load->controller('common/footer');
 		
-		$this->response->setOutput($this->load->view('extension/module/visited', $data));
+		$this->response->setOutput($this->load->view('extension/report/visited', $data));
 			
 	}
 
     public function install()
     {
-        $this->load->model('extension/module/visited');
-        $this->model_extension_module_visited->createTable();
+        $this->load->model('extension/report/visited');
+        $this->model_extension_report_visited->createTable();
 
     }
 
 
     public function uninstall()
     {
-        $this->load->model('extension/module/visited');
-        $this->model_extension_module_visited->dropTable();
+        $this->load->model('extension/report/visited');
+        $this->model_extension_report_visited->dropTable();
     }
 }

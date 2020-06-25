@@ -28,8 +28,8 @@
         </tr>
       </thead>
       <tbody>
+      {% for visited in topFifteen %}
         <tr>
-          {% for visited in topFifteen %}
           <td > {{visited.visited_id}} </td>
           <td > {{visited.url}} </td>
           <td > {{visited.title}} </td>

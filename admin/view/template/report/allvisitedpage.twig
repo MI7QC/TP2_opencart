@@ -26,8 +26,8 @@
         </tr>
       </thead>
       <tbody>
+      {% for visited in all_visited %}
         <tr>
-          {% for visited in all_visited %}
           <td > {{visited.visited_id}} </td>
           <td > {{visited.url}} </td>
           <td > {{visited.title}} </td>
