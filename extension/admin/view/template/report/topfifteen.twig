@@ -25,12 +25,8 @@
 		<table id="myTable" class="display">
 			<thead>
 				<tr>
-					<th>{{text_visited_id}}</th>
 					<th>{{text_url}}</th>
 					<th>{{text_title}}</th>
-					<th>{{text_date}}</th>
-					<th>{{text_ip_address}}</th>
-					<th>{{text_user_id}}</th>
 					<th>{{text_nb_visite}}</th>
 				</tr>
 			</thead>
@@ -38,22 +34,10 @@
 				<tr>
 					{% for visited in topFifteen %}
 						<td>
-							{{visited.visited_id}}
-						</td>
-						<td>
 							{{visited.url}}
 						</td>
 						<td>
 							{{visited.title}}
-						</td>
-						<td>
-							{{visited.date}}
-						</td>
-						<td>
-							{{visited.ip_address}}
-						</td>
-						<td>
-							{{visited.user_id}}
 						</td>
 						<td>
 							{{visited.nb_visite}}
@@ -68,7 +52,7 @@
 	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script>
 		$(document).ready(function () {
-$('#myTable').DataTable({paging: false});
+$('#myTable').DataTable({paging: false, order:["2", "desc"]});
 });
 	</script>
 </html>
