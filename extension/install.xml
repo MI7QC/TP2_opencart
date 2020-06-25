@@ -75,7 +75,7 @@
             <search>
                 <![CDATA[$data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));]]>
             </search>
-            <add position="after" offset="2">
+            <add position="after" offset="3">
                 <![CDATA[$this->load->model('report/visited');
 		        $this->model_report_visited->addVisited($data['title'], $data['uri'],$data['customer_id'],$data['ip_adresse']);	]]>
             </add>
