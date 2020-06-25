@@ -30,7 +30,7 @@
         </operation>
     </file>
 
-    <file path="admin/langage/en-gb/common/column_left.php">
+    <file path="admin/language/en-gb/common/column_left.php">
         <operation>
             <search>
                 <![CDATA[$_['text_other_status']         = 'Other Statuses';]]>
