@@ -1,7 +1,7 @@
 <?php
 class ModelExtensionReportVisited extends Model
 {
-    //creation de la table visited
+    // Creation de la table visited
     public function createTable()
     {
         $this->db->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'visited (
@@ -15,7 +15,7 @@ class ModelExtensionReportVisited extends Model
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
     }
 
-    //Desinstalation de la table visited
+    // Desinstallation de la table visited
     public function dropTable()
     {
         $this->db->query("DROP TABLE ".DB_PREFIX."visited");
