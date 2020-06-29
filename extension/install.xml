@@ -6,6 +6,7 @@
     <author>Samuel, Sacha et Jean-Cristophe</author>
     <link>https://cmaisonneuve.sacha-pignot.website/opencart-tp2</link>
     <file path="admin/controller/common/column_left.php">
+        <!-- Ajout dans la colone gauche des 2 nouveaux rapports -->
         <operation>
             <search>
                 <![CDATA['href'     => $this->url->link('report/statistics', 'user_token=' . $this->session->data['user_token'], true),]]>
@@ -31,6 +32,7 @@
     </file>
 
     <file path="admin/language/en-gb/common/column_left.php">
+        <!-- Ajout des traductions anglaises des rapports dans la colone gauche -->
         <operation>
             <search>
                 <![CDATA[$_['text_other_status']         = 'Other Statuses';]]>
@@ -43,6 +45,7 @@
     </file>
 
     <file path="catalog/controller/common/header.php">
+        <!-- Enregistrement de l'adresse IP du visiteur et de l'uri de la page visitée -->
         <operation>
             <search>
                 <![CDATA[$data['name'] = $this->config->get('config_name');]]>
@@ -53,6 +56,7 @@
             </add>
         </operation>
 
+        <!-- Enregistrement de l'ID de l'utilisateur si il est connecté -->
         <operation>
             <search>
                 <![CDATA[$this->load->model('account/wishlist');]]>
@@ -62,6 +66,7 @@
             </add>
         </operation>
 
+        <!-- Sinon, ID de l'utilisateur = NULL -->
         <operation>
             <search>
                 <![CDATA[count($this->session->data['wishlist']) : 0));]]>
@@ -71,6 +76,7 @@
             </add>
         </operation>
 
+        <!-- Envois des données au model et ajout de la visite dans la base de données -->
         <operation>
             <search>
                 <![CDATA[$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->link('account/account', '', true), $this->customer->getFirstName(), $this->url->link('account/logout', '', true));]]>
