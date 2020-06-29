@@ -1,4 +1,8 @@
 # TP2_opencart
+## Membres de l'équipe
+- Sacha Pignot
+- Samuel Saint-Jean
+- Jean-Christophe Parent-Paquette
 ## Accès Demo
 - Lien : [https://cmaisonneuve.sacha-pignot.website/opencart-tp2/admin/](https://cmaisonneuve.sacha-pignot.website/opencart-tp2/admin/)
      - Username : master
