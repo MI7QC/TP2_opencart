@@ -1,4 +1,8 @@
 <?php
+/**
+	 * Envoit les données à la vue du rapport "Top Fifteen Pages"
+	 * @return void
+	 */
 class ControllerReportTopfifteen extends Controller {
 	private $error = array();
 	
@@ -17,7 +21,6 @@ class ControllerReportTopfifteen extends Controller {
 
 		$data['topFifteen'] = array();
 				foreach ($topFifteen as $visited) {
-					//array dans un array
 					$data['topFifteen'][] = array(
 						'url' => $visited['url'],
 						'title' => $visited['title'],

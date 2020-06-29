@@ -1,7 +1,11 @@
 <?php
 class ControllerReportAllvisitedpage extends Controller {
 	private $error = array();
-	
+		
+	/**
+	 * Envoit les données à la vue du rapport "All visited pages"
+	 * @return void
+	 */
 	public function index() {
 
 		$this->load->language('report/allvisitedpage');
@@ -20,21 +24,10 @@ class ControllerReportAllvisitedpage extends Controller {
 
 		$data['breadcrumbs'] = array();
 
-        // $data['breadcrumbs'][] = array(
-        //     'text' => $this->language->get('text_home'),
-        //     'href' => $this->url->link('common/dashboard&user_token=' . $this->session->data['user_token'])
-        // );
-
-        // $data['breadcrumbs'][] = array(
-        //     'text' => $this->language->get('heading_title'),
-        //     'href' => $this->url->link('common/dashboard&user_token=' . $this->session->data['user_token'])
-        // );
-
         $all_visited = $this->model_report_allvisitedpage->getAllVisitedPage();
 		
 		$data['all_visited'] = array();
 				foreach ($all_visited as $visited) {
-					//array dans un array
 					$data['all_visited'][] = array(
 						'visited_id' => $visited['visited_id'],
 						'url' => $visited['url'],
